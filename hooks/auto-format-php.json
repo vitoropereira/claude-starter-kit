@@ -1,0 +1,19 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "export PATH=\"$HOME/.composer/vendor/bin:$PATH\" && if echo '{{file_path}}' | grep -q '\\.php$'; then php-cs-fixer fix '{{file_path}}' --rules=@PSR12 2>/dev/null || true; fi"
+          },
+          {
+            "type": "command",
+            "command": "if echo '{{file_path}}' | grep -q '\\.json$'; then jq --indent 4 '.' '{{file_path}}' > '{{file_path}}.tmp' && mv '{{file_path}}.tmp' '{{file_path}}' 2>/dev/null || true; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

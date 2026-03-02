@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(pnpm run dev:*)",
+      "Bash(pnpm run test:*)",
+      "Bash(pnpm run lint:*)",
+      "Bash(pnpm exec vitest run:*)",
+      "Bash(pnpm exec prettier:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm remove:*)",
+      "Bash(pnpm exec:*)",
+      "Bash(npx playwright test:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(tree:*)",
+      "Bash(sort:*)",
+      "Bash(echo:*)",
+      "Bash(node:*)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "enableAllProjectMcpServers": true
+}

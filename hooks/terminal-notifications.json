@@ -1,0 +1,24 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title \"Claude Code\" -subtitle \"Awaiting\" -message \"$(jq -r '.message')\" -appIcon \"https://claude.ai/images/claude_app_icon.png\" -activate \"com.mitchellh.ghostty\" -ignoreDnD"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -title \"Claude Code\" -message \"Done!\" -appIcon \"https://claude.ai/images/claude_app_icon.png\" -activate \"com.mitchellh.ghostty\" -ignoreDnD"
+          }
+        ]
+      }
+    ]
+  }
+}
