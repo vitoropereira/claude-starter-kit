@@ -1,7 +1,7 @@
 ---
 name: commit
 description: "Stage all changes and create a commit with an AI-generated message"
-allowed-tools: Bash
+allowed-tools: Bash, Read, Edit, Glob, Grep
 ---
 
 # Commit Command
@@ -14,6 +14,9 @@ Create a well-formatted commit for all staged and unstaged changes.
 2. Run `git diff` to see unstaged changes
 3. Run `git diff --cached` to see staged changes
 4. Run `git log --oneline -5` to see recent commit message style
+
+### Create Commit
+
 5. Analyze all changes and draft a commit message that:
    - Summarizes the nature of changes (feature, fix, refactor, docs, test, etc.)
    - Uses imperative mood ("Add feature" not "Added feature")
@@ -26,7 +29,7 @@ Create a well-formatted commit for all staged and unstaged changes.
 git commit -m "$(cat <<'EOF'
 Your commit message here
 
-Co-Authored-By: Claude <noreply@anthropic.com>
+Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 EOF
 )"
 ```

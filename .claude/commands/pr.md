@@ -21,8 +21,8 @@ Create a pull request for the current branch.
 
 3. Get the diff from the base branch:
    ```bash
-   git log origin/main..HEAD --oneline
-   git diff origin/main...HEAD --stat
+   git log origin/master..HEAD --oneline
+   git diff origin/master...HEAD --stat
    ```
 
 4. Analyze ALL commits that will be in the PR (not just the latest)
@@ -39,7 +39,7 @@ gh pr create --title "Your PR title" --body "$(cat <<'EOF'
 - [ ] How to test these changes
 - [ ] What to verify
 
-Generated with [Claude Code](https://claude.ai/code)
+🤖 Generated with [Claude Code](https://claude.ai/code)
 EOF
 )"
 ```
