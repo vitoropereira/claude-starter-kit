@@ -1,189 +1,68 @@
-# Claude Starter Kit
+# CLAUDE.md
 
-Kit consolidado de assets para Claude Code. Copie o que precisar para novos projetos.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Como Usar
+## What This Is
 
-1. **Novo projeto?** Copie a pasta `.claude/` inteira ou escolha componentes individuais
-2. **Escolha o template CLAUDE.md** da sua stack em `templates/`
-3. **Copie settings** de `settings/` para `.claude/settings.local.json`
-4. **Adicione hooks** de `hooks/` ao seu `settings.json`
-5. **Configure MCPs** de `mcp/` no `.mcp.json` do projeto
-6. **Use prompts** de `prompts/` para auditorias e bootstrapping
+A consolidated starter kit of reusable Claude Code assets (commands, skills, agents, templates, hooks, settings, MCP configs, scripts, prompts). Sourced from 20+ projects. Not an application — nothing to build, test, or run. Users copy what they need into their own projects.
 
----
-
-## Inventario Completo
-
-### Slash Commands (`.claude/commands/`)
-
-| Comando | Descricao |
-|---------|-----------|
-| `/commit` | Stage all + commit com mensagem AI + Co-Authored-By |
-| `/push` | Push seguro com verificacao de upstream |
-| `/pr` | Cria PR no GitHub via gh CLI |
-| `/ship` | Commit + Push + PR em um so comando |
-| `/cleanup-cache` | Limpa node_modules, .next, dist, caches |
-| `/lint` | Executa linter (Python: black/flake8/mypy) |
-| `/test` | Executa testes (pytest/unittest/Django) |
-| `/optimize-images` | Gera WebP + JPEG responsivos |
-| `/new-command` | Template para criar novos comandos |
-
-### Agents (`.claude/agents/`)
-
-| Agent | Model | Especialidade |
-|-------|-------|---------------|
-| `security-auditor` | opus | OWASP, RLS, API, Auth, Next.js |
-| `blog-content-manager` | sonnet | Blog bilingue, SEO, imagens |
-| `frontend-developer` | sonnet | React/Next.js/Vue components |
-
-### Skills (`.claude/skills/`)
-
-#### Workflow — PRD + Execucao Autonoma
-| Skill | Descricao |
-|-------|-----------|
-| `workflow/prd` | Gera PRD numerado com user stories |
-| `workflow/prd-tasks` | Quebra PRD em task files implementaveis |
-| `workflow/ralph` | Converte PRD+tasks em prd-XX.json |
-| `workflow/ralph-loop` | Loop autonomo de implementacao in-session |
-
-#### Frontend
-| Skill | Descricao |
-|-------|-----------|
-| `frontend/nextjs-best-practices` | Server/Client, routing, caching |
-| `frontend/nextjs-supabase-auth` | @supabase/ssr + App Router |
-| `frontend/ux-design` | UX anticipatorio (Apple/Jobs) + exemplos TSX |
-| `frontend/favicon` | Geracao dinamica/estatica de favicons |
-| `frontend/performance` | Core Web Vitals, budgets, otimizacao |
-
-#### Marketing
-| Skill | Descricao |
-|-------|-----------|
-| `marketing/marketing-copy` | Direct Response copywriting + exemplos |
-
-#### SEO
-| Skill | Descricao |
-|-------|-----------|
-| `seo/seo-technical` | Sitemap, robots, metadata, JSON-LD |
-
-#### Pagamentos
-| Skill | Descricao |
-|-------|-----------|
-| `payments/stripe` | Checkout, webhooks, subscriptions |
-| `payments/abacatepay` | PIX brasileiro (R$0,80/tx) |
-
-#### Analytics
-| Skill | Descricao |
-|-------|-----------|
-| `analytics/posthog` | Events, feature flags, session replay |
-
-#### Infraestrutura
-| Skill | Descricao |
-|-------|-----------|
-| `infrastructure/cloudflare` | DNS, email routing, R2 storage, Vercel |
-
-#### Database
-| Skill | Descricao |
-|-------|-----------|
-| `database/supabase-postgres` | 33 regras de otimizacao PostgreSQL |
-
-#### Qualidade
-| Skill | Descricao |
-|-------|-----------|
-| `quality/clean-code` | SRP/DRY/KISS/YAGNI + verificacao |
-| `quality/testing-patterns` | TDD, factories, mocking |
-
-#### Seguranca
-| Skill | Descricao |
-|-------|-----------|
-| `security/security-best-practices` | OWASP review framework |
-| `security/idor-testing` | IDOR/BOLA multi-tenant |
-| `security/top-web-vulnerabilities` | 100 vulnerabilidades web |
-| `security/xss-html-injection` | XSS stored/reflected/DOM |
-| `security/senior-qa` | QA toolkit com scripts Python |
-
-### Scripts (`scripts/`)
-
-| Script | Descricao |
-|--------|-----------|
-| `ralph.sh` | Loop AFK autonomo (roda claude -p em loop) |
-| `ralph-setup.sh` | Cria branch + valida build |
-| `ralph-queue.sh` | Fila de PRDs para execucao sequencial |
-| `RALPH_PROMPT.md` | Template de prompt para claude -p |
-
-### Prompts (`prompts/`)
-
-| Prompt | Descricao |
-|--------|-----------|
-| `pareto-revenue-audit.md` | Auditoria 80/20 de monetizacao |
-| `launch-readiness-audit.md` | Checklist de lancamento SaaS |
-| `mvp-bootstrap-template.md` | Template para bootstrapar MVP |
-
-### Templates CLAUDE.md (`templates/`)
-
-| Stack | Arquivo |
-|-------|---------|
-| Common (qualquer projeto) | `common/CLAUDE.md` |
-| Next.js | `nextjs/CLAUDE.md` |
-| Vue.js | `vue/CLAUDE.md` + `components.CLAUDE.md` + `pages.CLAUDE.md` |
-| Python | `python/CLAUDE.md` |
-| PHP | `php/CLAUDE.md` |
-| Node/Express | `node-express/CLAUDE.md` |
-
-### Hooks (`hooks/`)
-
-| Hook | Descricao |
-|------|-----------|
-| `auto-prettier.json` | Formata JS/TS/CSS/JSON no save |
-| `terminal-notifications.json` | Notificacoes macOS (terminal-notifier) |
-| `auto-format-php.json` | php-cs-fixer PSR-12 + jq para JSON |
-
-### MCP Configs (`mcp/`)
-
-| Config | Servidores incluidos |
-|--------|---------------------|
-| `common.mcp.json` | Memory Bank, Sequential Thinking, Brave Search |
-| `javascript.mcp.json` | + GitHub, Puppeteer, Slack, FileSystem |
-| `python.mcp.json` | + FastMCP, Docker, Jupyter, PostgreSQL |
-
-### Settings (`settings/`)
-
-| Config | Perfil |
-|--------|--------|
-| `minimal.settings.local.json` | Bun + Git + Gh (minimo) |
-| `nextjs.settings.local.json` | NPM + shadcn + Playwright + Vitest (completo) |
-| `vue.settings.local.json` | PNPM + Vitest + Playwright (Vue-focused) |
-
----
-
-## Workflow Ralph (Execucao Autonoma de PRDs)
+## Repository Structure
 
 ```
-Ideia → /prd → /prd-tasks → /ralph → ralph-setup.sh → ralph.sh → PR
+.claude/
+  commands/       # Slash commands: commit, push, pr, ship
+  agents/         # Specialized subagents (security-auditor)
+  skills/         # ~160 skill directories (domain knowledge packs) + some "copy" duplicates pending cleanup
+templates/        # Stack-specific CLAUDE.md templates (nextjs, vue, python, php, node-express, common)
+scripts/          # Ralph autonomous execution scripts (ralph.sh, ralph-setup.sh, ralph-queue.sh)
+settings/         # Pre-configured settings.local.json files (minimal, nextjs, vue)
+hooks/            # Hook configs (auto-prettier, terminal-notifications, auto-format-php)
+mcp/              # MCP server configs (common, javascript, python)
+prompts/          # Audit and bootstrap prompts
+docs/             # Distribution planning notes
 ```
 
-1. Use `/prd` para gerar um PRD numerado
-2. Use `/prd-tasks` para quebrar em task files
-3. Use `/ralph` para converter em prd-XX.json
-4. Execute `./scripts/ralph-setup.sh XX` para criar branch
-5. Execute `./scripts/ralph.sh XX 20` para rodar 20 iteracoes autonomas
-6. Ou use `/ralph-loop XX` para executar in-session
+## Key Workflows
 
----
+### Slash Commands
 
-## Setup Rapido
+| Command | Purpose |
+|---------|---------|
+| `/commit` | Stage all + commit with AI message + Co-Authored-By trailer |
+| `/push` | Push with upstream verification |
+| `/pr` | Create GitHub PR via `gh` CLI |
+| `/ship` | Commit + push + PR in one step |
 
-```bash
-# Copiar tudo para novo projeto
-cp -r .claude/ /caminho/do/novo/projeto/.claude/
+### Ralph (Autonomous PRD Execution)
 
-# Ou copiar apenas o que precisa
-cp .claude/commands/ship.md /caminho/do/novo/projeto/.claude/commands/
-cp -r .claude/skills/payments/ /caminho/do/novo/projeto/.claude/skills/
-
-# Copiar template CLAUDE.md
-cp templates/nextjs/CLAUDE.md /caminho/do/novo/projeto/CLAUDE.md
-
-# Copiar settings
-cp settings/nextjs.settings.local.json /caminho/do/novo/projeto/.claude/settings.local.json
 ```
+Idea → /prd → /prd-tasks → /ralph → ralph-setup.sh → ralph.sh → PR
+```
+
+- `/prd` generates a numbered PRD with user stories
+- `/prd-tasks` breaks it into task files
+- `/ralph` converts to `prd-XX.json`
+- `./scripts/ralph-setup.sh XX` creates branch + validates build
+- `./scripts/ralph.sh XX 20` runs up to 20 autonomous iterations
+- `/ralph-loop XX` executes in-session instead
+
+## Content Origins and Licensing
+
+Some skills have third-party origins requiring attribution:
+
+| Content | Source | License |
+|---------|--------|---------|
+| `supabase-postgres-best-practices/` | Supabase official | MIT — keep attribution |
+| `security-best-practices/` | Credited to OpenAI | Needs verification |
+| Several skills | tinyplate/claude-code-templates (Daniel Avila) | Needs verification |
+
+## Working in This Repo
+
+- Language is Portuguese (Brazilian) for user-facing docs; skills themselves are English
+- The `.claude/CLAUDE.md` is a generic template meant to be copied into target projects — not specific to this repo
+- The kit has a Next.js + Supabase + Stripe bias; `docs/DISTRIBUTION_PLAN.md` outlines plans to reorganize into `core/` + `packs/`
+- When adding new skills, place them as `.claude/skills/<skill-name>/SKILL.md`
+- When adding new commands, place them as `.claude/commands/<name>.md` with YAML frontmatter (name, description, allowed-tools)
+- `.claude/settings.local.json` contains accumulated permissions from a prior project (Calvino) — not meaningful for this repo
+- Several skill directories have " copy" suffix duplicates (e.g., `case-study-builder copy/`) that need deduplication
+- Files like `CHANGELOG copy.md`, `README copy.md`, `SKILL-MODE-PATTERN copy.md` in `.claude/skills/` are also duplicates pending cleanup
